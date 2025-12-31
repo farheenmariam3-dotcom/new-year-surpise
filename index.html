@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>My New Year Surprise 💖</title>
+<style>
+    body {
+        margin: 0;
+        font-family: 'Segoe UI', sans-serif;
+        background: #ffd6e8;
+        text-align: center;
+        overflow-x: hidden;
+    }
+
+    .page {
+        display: none;
+        padding: 40px 20px;
+    }
+
+    .active {
+        display: block;
+    }
+
+    h1 {
+        color: #c9184a;
+        font-size: 28px;
+    }
+
+    button {
+        background: #ff4d6d;
+        color: white;
+        border: none;
+        padding: 12px 25px;
+        font-size: 18px;
+        border-radius: 25px;
+        cursor: pointer;
+        margin-top: 30px;
+    }
+
+    button:hover {
+        background: #c9184a;
+    }
+
+    .photos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+    .photos img {
+    width: 90%;
+    max-width: 320px;
+    height: 420px;
+    object-fit: cover;
+    border-radius: 20px;
+    margin: 15px 0;
+}
+    .photos img {
+    animation: fadeIn 0.8s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+    .icons {
+        display: flex;
+        justify-content: space-around;
+        margin-top: 30px;
+        font-size: 35px;
+        cursor: pointer;
+    }
+
+    .message-box {
+    background: white;
+    color: #c9184a;
+    padding: 25px;
+    border-radius: 20px;
+    margin-top: 30px;
+    font-size: 17px;
+    line-height: 1.6;
+    min-height: 120px;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- PAGE 1 -->
+<div class="page active" id="page1">
+    <h1>Here is a little surprise on <br> New Year 💖</h1>
+    <button onclick="goNext()">Next</button>
+</div>
+
+<!-- PAGE 2 -->
+<div class="page" id="page2">
+    <h1>Our Memories 💞</h1>
+
+  <div class="photos">
+    <img src="img1.jpeg">
+    <img src="img2.jpeg">
+    <img src="img3.jpeg">
+    <img src="img4.jpeg">
+    <img src="img5.jpeg">
+    <img src="img6.jpeg">
+    <img src="img7.jpeg">
+    <img src="img8.jpeg">
+</div>
+
+
+    <div class="icons">
+        <div onclick="showMessage()">🎁</div>
+        <div onclick="showMessage()">🌸</div>
+        <div onclick="showMessage()">🎀</div>
+        <div onclick="showMessage()">❤️</div>
+    </div>
+
+    <div class="message-box" id="messageBox">
+        Click any icon 💗
+    </div>
+</div>
+
+ <script>
+    function goNext() {
+        document.getElementById("page1").classList.remove("active");
+        document.getElementById("page2").classList.add("active");
+    }
+
+    const messages = [
+        "I don’t know if you realize this, but you’ve quietly become one of the most important parts of my life. In the chaos of everything, you feel like calm. Loving you doesn’t feel heavy or confusing — it feels natural, like something my heart always knew how to do.",
+
+        "Every time I think about us, I smile without even meaning to. You’ve shown me love in ways that feel safe, steady, and real. Being with you makes me want to grow, not just for myself, but for us.",
+
+        "You are not just someone I love, you are someone I trust with my heart. In a world that can be loud and uncertain, you make me feel grounded. I hope you always know how deeply you are valued and cherished.",
+
+        "I love the little things about you — the way you care, the way you listen, the way you stay. You don’t just make my days better; you make my life softer. Having you feels like a blessing I never want to take for granted.",
+
+        "If this year taught me anything, it’s that love doesn’t have to be dramatic to be powerful. Sometimes it’s just two people choosing each other every day. And I choose you — today, tomorrow, and in all the quiet moments in between.",
+
+        "Being with you feels like coming home. No pretending, no fear, just honesty and warmth. Thank you for being patient with me, for standing by me, and for loving me in ways that feel genuine and rare.",
+
+        "I don’t promise perfection, but I promise effort, honesty, and a heart that is fully yours. Whatever comes next, I’m grateful that I get to walk into it with you by my side.",
+
+        "You make me believe in the kind of love that grows stronger with time. The kind that doesn’t fade when things get hard. I’m so thankful that out of everything, it was you who found me."
+    ];
+
+    let unusedMessages = [...messages];
+
+    function showMessage() {
+        if (unusedMessages.length === 0) {
+            unusedMessages = [...messages];
+        }
+        const randomIndex = Math.floor(Math.random() * unusedMessages.length);
+        const msg = unusedMessages.splice(randomIndex, 1);
+        document.getElementById("messageBox").innerText = msg;
+    }
+</script>
+
+</body>
+</html>
